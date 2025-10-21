@@ -1,6 +1,7 @@
 (function () {
 	const example = document.getElementById("example");
 	const cw1 = document.getElementById("cw1");
+	const cw1poj = document.getElementById("cw1poj");
 	const cw2 = document.getElementById("cw2");
 	const cw3 = document.getElementById("cw3");
 	const answer = document.getElementById("answer");
@@ -30,6 +31,23 @@
 		                        <div>UserID: ${array[i].userId}</div>
 		                        <br>`;
 					}
+				});
+		}, 500);
+	});
+
+	cw1poj.addEventListener("click", function () {
+		answer.innerHTML = "Loading...";
+		setTimeout(() => {
+			fetch("https://jsonplaceholder.typicode.com/posts/67")
+				.then((response) => response.json())
+				.then((post) => {
+					console.log(post);
+					answer.innerHTML = `
+		                        <div>Title: ${post.title}</div>
+		                        <div>Body: ${post.body}</div>
+		                        <div>Id: ${post.id}</div>
+		                        <div>UserID: ${post.userId}</div>
+		                        <br>`;
 				});
 		}, 500);
 	});

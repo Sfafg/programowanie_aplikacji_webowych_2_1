@@ -21,4 +21,8 @@
 	cw2.addEventListener("click", function () {
 		//TODO
 	});
+
+	cw3.addEventListener("click", function () {
+		//TODO
+	});
 })();

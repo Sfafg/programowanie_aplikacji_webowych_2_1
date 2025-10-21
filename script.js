@@ -2,6 +2,7 @@
 	const example = document.getElementById("example");
 	const cw1 = document.getElementById("cw1");
 	const cw1poj = document.getElementById("cw1poj");
+	const cw1nowy = document.getElementById("cw1nowy");
 	const cw2 = document.getElementById("cw2");
 	const cw3 = document.getElementById("cw3");
 	const answer = document.getElementById("answer");
@@ -49,6 +50,27 @@
 		                        <div>UserID: ${post.userId}</div>
 		                        <br>`;
 				});
+		}, 500);
+	});
+
+	cw1nowy.addEventListener("click", function () {
+		answer.innerHTML = "Processing...";
+		setTimeout(() => {
+			fetch("https://jsonplaceholder.typicode.com/posts", {
+				method: "POST",
+				body: JSON.stringify({
+					title: "Lorem ipsum",
+					body: "Dolor motes",
+					userId: 422,
+				}),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				},
+			})
+				.then((response) => response.json())
+				.then(
+					(json) => (answer.innerHTML = `Dodano nowy post o ID = ${json.id}`),
+				);
 		}, 500);
 	});
 

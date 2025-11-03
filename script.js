@@ -36,10 +36,10 @@
 		}, 500);
 	});
 
-	cw1poj.addEventListener("click", function () {
+	cw1poj.addEventListener("change", function () {
 		answer.innerHTML = "Loading...";
 		setTimeout(() => {
-			fetch("https://jsonplaceholder.typicode.com/posts/67")
+			fetch(`https://jsonplaceholder.typicode.com/posts/${this.value}`)
 				.then((response) => response.json())
 				.then((post) => {
 					console.log(post);
